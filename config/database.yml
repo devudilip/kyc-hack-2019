@@ -46,8 +46,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: rails5_production
-  username: rails5
-  password: <%= ENV['RAILS5_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: rails5_production
+#   username: rails5
+#   password: <%= ENV['RAILS5_DATABASE_PASSWORD'] %>
