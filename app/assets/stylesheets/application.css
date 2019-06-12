@@ -14,3 +14,8 @@
  *= require font-awesome
  *= require_self
  */
+
+
+body {
+	margin: 0px;
+}
