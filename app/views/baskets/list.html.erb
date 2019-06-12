@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h3>Suggested List</h3>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product[:name]%> <%= product[:brand] %></td>
+        <td><%= product[:price] %></td>
+        <td><%= product[:qty] %></td>
+        <td>
+         <%= link_to "#" do %>
+           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+         <% end %>
+         <%= link_to "#" do %>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Update",
+            "#",
+            :class => 'btn btn-primary' %>
+
+
+<%= link_to "Checkout",
+            "#",
+            :class => 'btn btn-primary' %>
