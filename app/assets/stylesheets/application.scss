@@ -127,6 +127,41 @@
         padding-left: 7px;
         padding-right: 15px;
     } 
+    
+  .budget-class .login100-form-btn {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        width: 79%;
+        height: 50px;
+        background-color: #00539f;
+        border-radius: 25px;
+        font-family: Ubuntu-Bold;
+        font-size: 15px;
+        color: #fff;
+        line-height: 1.2;
+        text-transform: uppercase;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        margin-left: 47px;
+    }
+    
+    budget-class .wrap-input100-list1 {
+    width: 70%;
+    background-color: #fff;
+    border-radius: 27px;
+    position: relative;
+    z-index: 1;
+    height: -1px;
+}
+    
  }
  
 /*}*/

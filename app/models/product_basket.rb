@@ -8,7 +8,7 @@ class ProductBasket  < ApplicationRecord
 
     response = HTTParty.post(url, 
     :body => { 
-                "user_id": user.id,
+                "user_id": 1,
                 "value": budget.budget_price,
                 "list": []
              }.to_json,

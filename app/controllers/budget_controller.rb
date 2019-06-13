@@ -17,7 +17,7 @@ class BudgetController < ApplicationController
         
         if @budget.save
           flash[:notice] = 'Budget has been processed.'
-          redirect_to(budget_index_path)
+          redirect_to(list_baskets_path)
         else
           render :action => "new" 
         end
@@ -25,11 +25,11 @@ class BudgetController < ApplicationController
     
   def save_prod
       @products = UserProduct.new
-      @products.products = params[:items]
+      @products.products = params[:budget][:list_of_items]
       @products.user_id = params[:user_id]
       @products.save
       #redirect_to(new_budget_path)
-      redirect_to :back
+      redirect_to(new_budget_path)
   end  
 
   def destroy_prod
@@ -38,6 +38,9 @@ class BudgetController < ApplicationController
       redirect_to(new_budget_path)
   end  
 
+  def show
+  
+  end
 
   private
 
