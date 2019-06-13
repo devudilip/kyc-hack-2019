@@ -44,6 +44,13 @@ $('.typeahead').typeahead({
   name: 'states',
   source: substringMatcher(states)
 });
+
+ $(".promotion").click(function() {
+        // window.document.location = $(this).data("href");
+        // console.log($(this).context.innerText);
+        $('#modal-promotion-body').html(" N1 GILLETTE BLADE 2 FOR £20");
+         $('#modal-promotion').modal('show');
+    });
 </script>
 
 <style type="text/css">
