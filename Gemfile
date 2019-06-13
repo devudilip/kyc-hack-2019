@@ -70,3 +70,4 @@ gem 'jquery-rails'
 
 gem 'httparty'
 gem "font-awesome-rails"
+gem 'rails_12factor', group: :production
