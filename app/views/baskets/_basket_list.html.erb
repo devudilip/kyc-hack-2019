@@ -79,6 +79,17 @@
   </div>
 
 
+  <% end %>
+  <tr>
+    <td>Total</td>
+    <td>£ <%= calculate_sum_for_products(@products) %></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+
    <div id="modal-new" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <%= form_tag(list_baskets_path, {:method => :get, :class => "form"}) do %>
@@ -95,17 +106,16 @@
           <div class="form-group">
 
             <label for="qty">Name</label>
-            <%= text_field_tag 'name', product[:name], class: 'form-control', disabled: true%>
+            <%= text_field_tag 'new_product', "", class: 'typeahead form-control', placeholder: "Type Product"%>
           </div>
        
           <div class="form-group">
 
             <label for="qty">Qty</label>
-            <%= number_field_tag 'qty', product[:qty], class: 'form-control'%>
+            <%= number_field_tag 'qty', 1, class: 'form-control'%>
           </div>
         </div>
 
-        <%= hidden_field_tag :product_id ,  product[:product_id]%>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -117,14 +127,5 @@
     </div>
   </div>
 
-
-  <% end %>
-  <tr>
-    <td>Total</td>
-    <td>£ <%= calculate_sum_for_products(@products) %></td>
-    <td></td>
-    <td></td>
-  </tr>
-</tbody>
-</table>
 </div>
+<%= render "basket_style" %>

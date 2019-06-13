@@ -86,6 +86,11 @@ end
    get_non_deleted_user_products(user)
   end
 
+  def self.add_and_get_products(name,price,product_id, qty, user)
+    ProductBasket.create(user_id: user.id, name: name,price: price, product_id: product_id, qty: qty, status: "U")
+    get_non_deleted_user_products(user)
+  end
+
 
   def self.delete_and_get_products(product_id, user)
    product=  ProductBasket.where(user_id: user.id).where(product_id: product_id).first
@@ -104,6 +109,27 @@ end
 
   def self.get_non_deleted_user_products(user)
     ProductBasket.where("user_id = ? and status != ?", user.id, "D" )
+  end
+
+
+def self.get_new_product(name)
+  result= ActiveRecord::Base.connection.execute("select product_name,product_price,product_id  from customer_data_cube5 where product_name = '#{name}'").first
+end
+
+  def self.get_new_product_names
+ product_names = []
+ results = ActiveRecord::Base.connection.execute("select product_name from customer_data_cube5")
+ # results.each do |product|
+ #    product_names << product[0].to_s
+ # end
+ # product_names
+# ActiveRecord::Base.connection.execute("CREATE TABLE customer_data_cube5 (
+#     product_id integer,
+#     product_name varchar(200),
+#     product_price double,
+#     product_group varchar(200)
+# )")
+
   end
 
 end
