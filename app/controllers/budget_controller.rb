@@ -12,6 +12,7 @@ class BudgetController < ApplicationController
     end    
     
     def create
+        Budget.delete_all
         @budget = Budget.new(user_params)
         #@budget.budget = params[:budget][:budget]
         
