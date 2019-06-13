@@ -128,7 +128,7 @@
         padding-right: 15px;
     } 
     
-  .budget-class .login100-form-btn {
+  .login100-form-btn {
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
@@ -137,7 +137,7 @@
         justify-content: center;
         align-items: center;
         padding: 0 20px;
-        width: 79%;
+        width: 83%;
         height: 50px;
         background-color: #00539f;
         border-radius: 25px;
@@ -150,16 +150,17 @@
         -o-transition: all 0.4s;
         -moz-transition: all 0.4s;
         transition: all 0.4s;
-        margin-left: 47px;
+        margin-left: 42px;
     }
     
-    budget-class .wrap-input100-list1 {
-    width: 70%;
+    .wrap-input100-list1 {
+    width: 82%;
     background-color: #fff;
     border-radius: 27px;
     position: relative;
     z-index: 1;
     height: -1px;
+    margin-left: 42px;
 }
     
  }
