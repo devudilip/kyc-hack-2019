@@ -81,7 +81,7 @@ end
 
 
   def self.edit_and_get_products(product_id, qty, user)
-   product=  ProductBasket.where(user_id: user.id).where(product_id: product_id).first
+   product=  ProductBasket.find(product_id)
    product.update_attributes(qty: qty,status: "U")
    get_non_deleted_user_products(user)
   end
@@ -93,7 +93,7 @@ end
 
 
   def self.delete_and_get_products(product_id, user)
-   product=  ProductBasket.where(user_id: user.id).where(product_id: product_id).first
+   product=  ProductBasket.find(product_id)
    product.update_attributes(status: "D")
    get_non_deleted_user_products(user)
   end
