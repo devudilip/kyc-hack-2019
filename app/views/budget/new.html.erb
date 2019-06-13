@@ -1,3 +1,4 @@
+<div class="budget-class">
 <%= form_for(:budget, :url => {:action => "create"}, :html => { :multipart => true }) do |form| %>
       
       <%= hidden_field_tag 'budget[user_id]', current_user.id%>
@@ -56,7 +57,7 @@
     <%= form.submit "Creating Basket", :class=>"login100-form-btn" %>
     
 <%end%>                
-
+</div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
