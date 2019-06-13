@@ -12,7 +12,7 @@ class BudgetController < ApplicationController
     end    
     
     def create
-        Budget.delete_all
+        Budget.where("user_id = ?", current_user.id)
         @budget = Budget.new(user_params)
         #@budget.budget = params[:budget][:budget]
         
@@ -34,7 +34,14 @@ class BudgetController < ApplicationController
   end  
 
   def destroy_prod
+      w
       @prod = UserProduct.find_by_products(params[:product])
+      @prod.delete
+      redirect_to(new_budget_path)
+  end  
+
+  def destroy
+      @prod = UserProduct.find(params[:product_id])
       @prod.delete
       redirect_to(new_budget_path)
   end  

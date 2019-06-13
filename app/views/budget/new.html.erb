@@ -9,7 +9,7 @@
                     <%= form_for(:budget, :url => {:action => "save_prod"}) do |form_f| %>
                         <%= hidden_field_tag 'user_id', current_user.id%>
                         <div class="wrap-input100-list validate-input m-b-16" data-validate="Please enter value">
-            				<%= form_f.text_field :list_of_items, :class => "input100", :placeholder => "Add a Product!!" %>
+            				<%= form_f.text_field :list_of_items, :class => "input100", :placeholder => "Add Product" %>
             				<span class="focus-input100"></span>
             	        </div>
                 	    <%= form_f.submit "Add", :class=>"login100-form-btn-save" %><br/>
@@ -23,7 +23,7 @@
                               <tr>
                                 <td><%= product.products %></td>
                                 <td>
-                                  <%= link_to destroy_prod_budget_index_path(deleted_product: product[:product_id]),:data => {:confirm => 'Are you sure?'} do %>
+                                  <%= link_to destroy_prod_budget_index_path(product_id: product.id),:data => {:confirm => 'Are you sure?', :method => :delete} do %>
                                       <i class="fa fa-trash-o" aria-hidden="true"></i>
                                   <% end %>
                                 </td>
@@ -37,6 +37,7 @@
             
              <%= form_for(:budget, :url => {:action => "create"}, :html => { :multipart => true }) do |form| %>
                <%= hidden_field_tag 'budget[user_id]', current_user.id%>
+               <%= hidden_field_tag 'radio_type', params[:myKey]%>
             
                 <div class="image-upload box">
                     <div class="file-upload" data-validate="Please enter value">
@@ -46,15 +47,15 @@
                 </div>
                 
                 <div class="skip box">
-                    We are creating our Own Basket!!!
+                    Basket Genie is creating your basket...
                 </div>
             
                 <div class="wrap-input100-list1 validate-input m-b-16" data-validate="Please enter value">
-        			<%= form.text_field :budget_price, :class => "input100", :placeholder => "Budget Price!!" %>
+        			<%= form.text_field :budget_price, :class => "input100", :placeholder => "Add Budget", :required => true  %>
         			<span class="focus-input100"></span>
         	    </div><br/>
         
-                <%= form.submit "Creating Basket", :class=>"login100-form-btn" %>
+                <%= form.submit "Creating Basket", :class=>"login100-form-btn", :id => "create_basket" %>
             
             <%end%>                
         </div>
@@ -69,6 +70,13 @@ $(document).ready(function(){
         $(".box").not(targetBox).hide();
         $(targetBox).show();
     });
+    
+    $("#create_basket").click(function() {
+         if ($("#budget_budget_price").val() == "") {
+              alert("Please Enter Budget!!!");
+               return false;
+        } 
+    })
     
     // $("#save_prod").click(function() {
     //     alert($("#prod_list").val())
