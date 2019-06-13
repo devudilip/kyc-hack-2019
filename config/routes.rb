@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :budget do 
     collection do
       post 'save_prod'
+      post 'destroy_prod'
     end  
   end  
   devise_for :users

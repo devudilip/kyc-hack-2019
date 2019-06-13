@@ -28,8 +28,16 @@ class BudgetController < ApplicationController
       @products.products = params[:items]
       @products.user_id = params[:user_id]
       @products.save
+      #redirect_to(new_budget_path)
+      redirect_to :back
+  end  
+
+  def destroy_prod
+      @prod = UserProduct.find_by_products(params[:product])
+      @prod.delete
       redirect_to(new_budget_path)
   end  
+
 
   private
 
