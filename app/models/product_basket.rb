@@ -6,11 +6,22 @@ class ProductBasket  < ApplicationRecord
 		# response = HTTParty.get('http://immense-chamber-19203.herokuapp.com/')
     budget = Budget.where(user_id: user.id).first
 
+    @prods = UserProduct.where("user_id = ?", user.id)
+
+    if @prods.empty?
+        list = []
+    else
+        list = @prods.pluck(:products)
+    end
+
+
+
+
     response = HTTParty.post(url, 
     :body => { 
                 "user_id": 1,
                 "value": budget.budget_price,
-                "list": []
+                "list": list
              }.to_json,
     :headers => { 'Content-Type' => 'application/json' } )
 

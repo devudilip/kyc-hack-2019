@@ -4,14 +4,17 @@
 <%= render "basket_list" %>
 </div>
 
-<%= link_to "Update",
-"#",
-:class => 'btn btn-primary' %>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-6" style="float:left"><%= link_to "Update List","#",:class => 'btn btn-primary' %></div>
+      <div class="col-lg-6" style="float:right"><%= link_to "Checkout", "#" , :class => 'btn btn-primary' %></div>
+  </div>
+</div>
 
 
-<%= link_to "Checkout",
-"#",
-:class => 'btn btn-primary' %>
+
+
+
 
 
 

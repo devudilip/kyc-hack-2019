@@ -12,7 +12,7 @@ class BudgetController < ApplicationController
     end    
     
     def create
-        Budget.where("user_id = ?", current_user.id)
+        Budget.where("user_id = ?", current_user.id).delete_all
         @budget = Budget.new(user_params)
         #@budget.budget = params[:budget][:budget]
         
