@@ -1,29 +1,28 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
+						<%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "input100", :placeholder=>"Email" %>
+						<span class="focus-input100"></span>
+					</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
+						<!--<input class="input100" type="password" name="pass" placeholder="Password">-->
+              <%= f.password_field :password, autocomplete: "new-password", :class=>"input100",:placeholder=>"Password" %>
+						<span class="focus-input100"></span>
+					</div><br/>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
+						<!--<input class="input100" type="text" name="username" placeholder="Username">-->
+						<%= f.password_field :password_confirmation, autofocus: true, autocomplete: "password", :class=>"input100", :placeholder=>"Password" %>
+						<span class="focus-input100"></span>
+					</div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+					<div class="container-login100-form-btn">
+							<%= f.submit "Sign up", :class=>"login100-form-btn" %>
+					</div>
+
+
 <% end %>
 
 <%= render "devise/shared/links" %>
