@@ -1,0 +1,95 @@
+<%= form_for(:budget, :url => {:action => "create"}, :html => { :multipart => true }) do |form| %>
+      
+      <%= hidden_field_tag 'budget[user_id]', current_user.id%>
+    <div class="container" >
+        <label class="radio-inline"><input type="radio" name="colorRadio" value="list" checked> Add List</label>
+        <label class="radio-inline"><input type="radio" name="colorRadio" value="image-upload"> Take a Pic</label>
+        <label class="radio-inline"><input type="radio" name="colorRadio" value="skip"> Skip</label>
+    </div>
+    
+    <div>
+        <div class="list box" id="default">
+            <%#= form_for(:budget, :url => {:action => "save_prod"}) do |form_prod| %>
+                <div class="wrap-input100-list validate-input m-b-16" data-validate="Please enter value">
+    				<input type="text" name="list_of_items" value="" class = "input100" placeholder = "Add a Products!!!" id = "prod_list">
+    				<span class="focus-input100"></span>
+    	        </div>
+        	    <button class="login100-form-btn-save", id="save_prod">Add</button><br/>
+        	    <br/><br/>
+        	    <table class="table table-striped">
+                  <tbody>
+                    <% UserProduct.all.each do |product| %>
+                      <% if product.user_id == current_user.id %>
+                      <tr>
+                        <td><%= product.products %></td>
+                        <td><%#= User.find(product.user_id).login %></td>
+                        <td>
+                          <%#= link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-default btn-xs' %>
+                          <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),product_path(product),:method => :delete,:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },:class => 'btn btn-xs btn-danger' %>
+                        </td>
+                      </tr>
+                      <%end%>
+                    <% end %>
+                  </tbody>
+                </table>
+        	    
+	        <%#end%>
+        </div>
+        <div class="image-upload box">
+            <div class="file-upload" data-validate="Please enter value">
+				<label class="file-upload-label">Upload List of Products:</label><%= form.file_field :image %>
+				<span class="focus-input100"></span>
+	        </div><br/><br/>
+        </div>
+        <div class="skip box">
+            We are creating our Own Basket!!!
+        </div>
+    </div>    
+    
+      <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter value">
+				<!--<input class="input100" type="text" name="username" placeholder="Username">-->
+						<%= form.text_field :budget_price, :class => "input100", :placeholder => "Budget Price!!" %>
+						<span class="focus-input100"></span>
+	  </div><br/>
+
+
+    <%= form.submit "Creating Basket", :class=>"login100-form-btn" %>
+    
+<%end%>                
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#default").show();
+    $('input[type="radio"]').click(function(){
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+        $(".box").not(targetBox).hide();
+        $(targetBox).show();
+    });
+    
+    $("#save_prod").click(function() {
+        alert($("#prod_list").val())
+         var item = $("#prod_list").val();
+         var user = <%= current_user.id %>
+      $.ajax({
+            type: 'post',
+            url: "/budget/save_prod",
+            data: {items: item,
+                   user_id: user
+            },
+            success: function(data) {}
+       });
+       return false;
+    });
+    
+});
+</script>
+
+<style type="text/css">
+    .box{
+        padding: 42px;
+        display: none;
+        margin-top: -3px;
+    }
+</style    

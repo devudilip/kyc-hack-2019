@@ -72,6 +72,6 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
 
-gem 'spree', '~> 3.7.0'
-gem 'spree_auth_devise', '~> 3.5'
-gem 'spree_gateway', '~> 3.4'
+gem 'httparty'
+gem "font-awesome-rails"
+gem 'rails_12factor', group: :production

@@ -11,9 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require font-awesome
  *= require_self
  */
- 
  /*@media all and (max-width: 430px) and (min-width: 360px) {*/
 
     .wrap-login100 {
@@ -130,3 +130,27 @@
  
 /*}*/
  
+
+body {
+	margin: 0px;
+}
+
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
