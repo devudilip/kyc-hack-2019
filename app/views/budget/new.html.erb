@@ -12,7 +12,7 @@
             				<%= form_f.text_field :list_of_items, :class => "input100", :placeholder => "Add Product" %>
             				<span class="focus-input100"></span>
             	        </div>
-                	    <%= form_f.submit "Add", :class=>"login100-form-btn-save" %><br/>
+                	    <%= form_f.submit "Add", :class=>"login100-form-btn-save",:id => "add_new_items" %><br/>
             	    <%end%>
             	    <br/><br/>
             	    
@@ -74,6 +74,13 @@ $(document).ready(function(){
     $("#create_basket").click(function() {
          if ($("#budget_budget_price").val() == "") {
               alert("Please Enter Budget!!!");
+               return false;
+        } 
+    })
+
+    $("#add_new_items").click(function() {
+         if ($("#budget_list_of_items").val() == "") {
+              alert("Please Enter Product");
                return false;
         } 
     })

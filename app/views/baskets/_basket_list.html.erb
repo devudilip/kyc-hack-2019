@@ -118,7 +118,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= submit_tag "Save",class: "btn btn-primary"%>
+          <%= submit_tag "Save",class: "btn btn-primary", id: "save_new_prod"%>
         </div>
       </div>
       <% end %>
@@ -128,3 +128,14 @@
 
 </div>
 <%= render "basket_style" %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#save_new_prod").click(function() {
+         if ($("#new_product").val() == "") {
+              alert("Please Enter Product");
+               return false;
+        } 
+    })
+})
+</script>
