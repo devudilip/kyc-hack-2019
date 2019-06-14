@@ -17,7 +17,7 @@ class BudgetController < ApplicationController
         #@budget.budget = params[:budget][:budget]
         
         if @budget.save
-          flash[:notice] = 'Budget has been processed.'
+          flash[:notice] = 'Your Basket Is Ready.'
           redirect_to(list_baskets_path)
         else
           render :action => "new" 
