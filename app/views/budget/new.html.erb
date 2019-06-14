@@ -40,11 +40,19 @@
                <%= hidden_field_tag 'radio_type', params[:myKey]%>
             
                 <div class="image-upload box">
-                    <div class="file-upload" data-validate="Please enter value">
-        				<label class="file-upload-label">Upload List of Products:</label><%= form.file_field :image %>
-        				<span class="focus-input100"></span>
-        	        </div><br/><br/>
+                    <div class="file-upload upload-label" data-validate="Please enter value">
+        				    <label class="file-upload-label">Upload Product List:</label>
+
+        	        </div>
+                  <br />
+                  <br/><br/>
+                  <div class="upload-field">
+                  <%= form.file_field :image %>
                 </div>
+                  <br />
+                  
+                </div>
+                
                 
                 <div class="skip box">
                     Basket Genie is creating your basket...
@@ -53,7 +61,7 @@
                 <div class="wrap-input100-list1 validate-input m-b-16" data-validate="Please enter value">
         			<%= form.text_field :budget_price, :class => "input100", :placeholder => "Add Budget", :required => true  %>
         			<span class="focus-input100"></span>
-        	    </div><br/>
+        	    </div> <br/>
         
                 <%= form.submit "Creating Basket", :class=>"login100-form-btn", :id => "create_basket" %>
             
@@ -109,4 +117,11 @@ $(document).ready(function(){
         display: none;
         margin-top: -3px;
     }
-</style    
+    .budget-class #budget_image {
+      margin-left: 0px;
+    }
+    .file-upload .upload-label {
+       margin-left: 10px;
+
+    }
+</style> 

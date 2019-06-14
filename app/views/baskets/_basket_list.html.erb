@@ -24,9 +24,9 @@
   <tbody>
     <% @products.each do |product| %>
     <tr class="<%= product[:brand] == 'Gillette' ? 'promotion' : ''  %>">
-      <td><%= product[:name]%> <%= product[:brand] %></td>
-      <td>£ <%= product[:price] * product[:qty].to_i %></td>
-      <td><%= product[:qty] %></td>
+      <td class="<%= product[:brand] == 'Gillette' ? 'promotion-td' : ''  %>"><%= product[:name]%> <%= product[:brand] %></td>
+      <td class="<%= product[:brand] == 'Gillette' ? 'promotion-td' : ''  %>">£ <%= product[:price] * product[:qty].to_i %></td>
+      <td class="<%= product[:brand] == 'Gillette' ? 'promotion-td' : ''  %>"><%= product[:qty] %></td>
       <td>
        <a href="" data-toggle="modal" data-target="#modal-<%= product[:id] %>">
         <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
@@ -105,7 +105,7 @@
           <div class="form-group">
 
             <label for="qty">Name</label>
-            <%= text_field_tag 'new_product', "", class: 'typeahead form-control', placeholder: "Type Product"%>
+            <%= text_field_tag 'new_product', "", class: 'typeahead form-control', placeholder: "Search Product"%>
           </div>
        
           <div class="form-group">
@@ -125,6 +125,26 @@
 
     </div>
   </div>
+
+
+  <div class="modal fade" id="modal-promotion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Promotion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-promotion-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <%= render "basket_style" %>
